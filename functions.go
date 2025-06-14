@@ -10,6 +10,7 @@ func main() {
 
 }
 
-func add(a int, b int) int {
-	return a + b
+func add(a int, b int) string {
+	// Sprint is used to format the string and return it
+	return fmt.Sprint("The addition is: ", a+b)
 }
