@@ -1,18 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+const db = "db.txt"
+
+func write(number float64) {
+
+	var data = []byte(fmt.Sprint(number))
+
+	os.WriteFile(db, data, 0064)
+}
+
+func read() float64 {
+	var data, _ = os.ReadFile(db)
+
+	dataInString := string(data)
+	balance, _ := strconv.ParseFloat(dataInString, 64)
+	return balance
+
+}
 
 func main() {
 
-	var total float64 = 100000.0
-
-	// for i := 0; i < 2; i++ { // loop will run
-	// 	banking(total)
-	// }
-
 	fmt.Println("\n\n\nWelcome to my banking app\n\n\n")
-
 	for { // infinite loop
+		total := read()
 		banking(total)
 	}
 }
@@ -30,12 +46,13 @@ func banking(total float64) {
 	fmt.Scan(&choice)
 
 	if choice == 1 {
-		fmt.Print("Your current balance is: ", total)
+		fmt.Println("Your current balance is: ", total)
 	} else if choice == 2 {
 		pf("Enter amount to deposit: ")
 		var deposit float64
 		fmt.Scan(&deposit)
 		total = total + deposit
+		write(total)
 		pf("updated balance: ", total)
 	} else if choice == 3 {
 
@@ -45,6 +62,8 @@ func banking(total float64) {
 		fmt.Scan(&amount)
 
 		total = total - amount
+
+		write(total)
 
 		pf("updated balance:", total)
 	} else if choice == 4 {
