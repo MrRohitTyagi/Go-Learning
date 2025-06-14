@@ -13,8 +13,11 @@ func main() {
 
 	fmt.Println("investment calculator")
 
-	var final = amount * math.Pow(1+interest/100, years)
+	var value = amount * math.Pow(1+interest/100, years)
+	const inflationRate = 2.0
 
-	fmt.Println(final)
+	var valueAfterInflation = value - (value / 100 * inflationRate * years)
+
+	fmt.Println(valueAfterInflation)
 
 }
