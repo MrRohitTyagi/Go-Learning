@@ -8,7 +8,7 @@ import (
 func main() {
 
 	var amount float64 = 1000
-	var interest = 5.5
+	interest := 5.5
 	var years float64 = 10
 
 	fmt.Println("investment calculator")
