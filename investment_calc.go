@@ -13,7 +13,9 @@ func main() {
 	const inflationRate = 2.0
 
 	// get user input from terminal and store in variables using fmt.scan()
+	fmt.Print("Enter the amount you want to invest: ")
 	fmt.Scan(&amount) // & is used to get the address of the variable and will be used to store the input value
+	fmt.Print("Enter the number of years you want to invest for: ")
 	fmt.Scan(&years)
 
 	fmt.Println("investment calculator")
