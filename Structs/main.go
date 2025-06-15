@@ -7,7 +7,7 @@ import (
 	"example.com/investment/input"
 )
 
-type user struct {
+type user struct { // defining struct (JS object) type
 	first     string
 	last      string
 	age       int
@@ -20,8 +20,7 @@ func main() {
 	last := input.SInput()
 	age := input.NInput()
 
-	var person = user{
-
+	var person = user{ // basically objects
 		first:     first,
 		last:      last,
 		age:       age,
