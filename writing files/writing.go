@@ -1,38 +1,54 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 )
 
 func main() {
-	var inp string
-	fmt.Println("Select Option")
-	fmt.Println("1. Read File")
-	fmt.Println("2. Write File")
+	for {
 
-	fmt.Scan(&inp)
+		var inp string
+		fmt.Println("Select Option")
+		fmt.Println("1. Read File")
+		fmt.Println("2. Write File")
 
-	switch inp {
+		fmt.Scan(&inp)
 
-	case "1":
-		read()
-	case "2":
+		switch inp {
 
-		fmt.Println("Enter the text: ")
-		var data string
-		fmt.Scan(&data)
-		write(data)
+		case "1":
+			read("defaultValue")
+		case "2":
+
+			fmt.Println("Enter the text: ")
+			var data string
+			fmt.Scan(&data)
+			write(data)
+
+		}
 
 	}
-
 }
 
-func read() {
+func read(defaultValue string) (string, error) {
 
-	data, _ := os.ReadFile("temp.txt")
+	data, err := os.ReadFile("temp.txt")
+
+	//Error handeling
+
+	if err != nil {
+
+		fmt.Println("Has error")
+		return defaultValue, errors.New(err.Error())
+	}
+
+	fmt.Println("err", err)
 	dataInString := string(data) // Convert byte slice to string
 	fmt.Print(dataInString)
+
+	return dataInString, nil
 }
 
 func write(data string) {
