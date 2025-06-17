@@ -9,9 +9,13 @@ import (
 )
 
 type Note struct {
-	Label   string
-	Content string
-	Date    time.Time
+	Label   string    `json:"label"`
+	Content string    `json:"content"`
+	Date    time.Time `json:"date_value"`
+	// the  strings are knows as struct metadata
+	// these can be anything, and will be picked by the package that is using this metadata
+	// like the json package will liik into the metadata and will change the keys to the one in metadata
+	// cool stuff
 }
 
 func New(label, content string) Note {
