@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	employee "example.com/investment/Methods/Employee"
+)
 
 type user struct {
 	name string
@@ -33,4 +37,23 @@ func main() {
 	// data mutation
 	person.mutateName("ABC")
 	person.print("extra stuff") // call the attached struct
+
+	// creating struct froma outside package
+	structFromPackage()
+}
+
+func structFromPackage() {
+
+	emp1, _ := employee.New("rohit", 2000.45)
+
+	emp1.Print()
+
+	emp2, err := employee.New("mohit", 1000)
+
+	if err != nil {
+		fmt.Println("err =>", err)
+	} else {
+
+		emp2.Print()
+	}
 }
