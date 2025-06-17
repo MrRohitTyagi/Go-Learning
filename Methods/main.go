@@ -12,6 +12,12 @@ func (u user) print(extra string) {
 	fmt.Println("u.name =>", u.name)
 	fmt.Println("u.age =>", u.age)
 	fmt.Println("extra =>", extra)
+}
+
+// This will mutate the struct key,
+// Important, pass the pointer
+func (u *user) mutateName(newName string) {
+	u.name = newName
 
 }
 
@@ -21,6 +27,11 @@ func main() {
 		name: "rohit",
 		age:  21,
 	}
+
 	person.print("extra stuff") // call the attached struct
+	person.mutateName("ABC")
+	person.print("extra stuff") // call the attached struct
+
+	// data mutation
 
 }
