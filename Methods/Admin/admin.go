@@ -7,6 +7,7 @@ import (
 )
 
 type Admin struct {
+	// if we want to expose these struct keys, it must start with capital letter
 	password string
 	email    string
 	employee *employee.Emp
