@@ -29,9 +29,8 @@ func main() {
 	}
 
 	person.print("extra stuff") // call the attached struct
-	person.mutateName("ABC")
-	person.print("extra stuff") // call the attached struct
 
 	// data mutation
-
+	person.mutateName("ABC")
+	person.print("extra stuff") // call the attached struct
 }

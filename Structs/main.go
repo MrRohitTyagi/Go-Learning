@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
@@ -33,6 +34,30 @@ func main() {
 
 	structArgs(person)
 
+	// cleaner way to create a struct
+	var person2, _ = newPerson("rohit", "tyagi", 21)
+
+	fmt.Println("person2 =>", person2)
+
+	var person3, err = newPerson("abc", "xyz", 52)
+
+	fmt.Println("person3 =>", person3)
+	fmt.Println("err =>", err)
+
+}
+
+func newPerson(fName string, Lname string, age int) (*user, error) {
+
+	// can also add some valiations here
+	if age > 50 {
+		return nil, errors.New("age is too high")
+	}
+
+	return &user{
+		first: fName,
+		last:  Lname,
+		age:   age,
+	}, nil
 }
 
 func structArgs(person user) {
