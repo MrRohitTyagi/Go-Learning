@@ -2,7 +2,7 @@ package main
 
 func main() {
 
-	var value any = "1"
+	var value any = "thi is a string"
 	// value can be of any type
 	// we can use type switch to check the type of value
 	// type switch is used to determine the type of an interface value
