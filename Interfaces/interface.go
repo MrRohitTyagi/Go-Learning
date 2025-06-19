@@ -15,7 +15,6 @@ type Person struct {
 // basically make ssure 2 structs have a mehtod common to both of them
 // here we have a common interface that both Person and Employee implement
 // so we can pass both of them to a function that accepts this interface
-
 type common interface {
 	Print()
 }
