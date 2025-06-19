@@ -9,6 +9,9 @@ func main() {
 	// it is similar to a regular switch statement, but it checks the type of the value instead of its value
 	// it is useful when we want to perform different actions based on the type of the value
 
+	actualValue, ok := value.(string)
+	println(actualValue, ok) // type assertion
+
 	switch value.(type) {
 
 	// this only // works with the type of value, not the value itself
